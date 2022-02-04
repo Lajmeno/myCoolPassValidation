@@ -24,7 +24,6 @@ public class PassValidator {
             }
         }
 
-
         if (password.toLowerCase() == password){
             System.out.println("Not a valid password: needs to contain upper case letters");
             return false;
@@ -53,6 +52,29 @@ public class PassValidator {
         System.out.println("Password accepted");
         return true;
     }
+
+    public static boolean passArrayValidation(String[] passwords){
+
+        for (int i = 0; i < passwords.length; i++){
+            if(passwords[i] == null);{
+                System.out.println("Array contains empty Passwords");
+                return false;
+            }
+        }
+        for (int i = 0; i < passwords.length; i++) {
+            String password = passwords[i];
+            if (!passValidation(password)) {
+                return false;
+            }
+        }
+        if (passwords.length > 0) {
+            return true;
+        }
+        return false;
+
+    }
+
+
 
 
 
