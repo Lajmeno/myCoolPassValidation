@@ -6,6 +6,11 @@ public class PassValidator {
 
     public static boolean passValidation(String password){
 
+        if (password == null){
+            System.out.println("Not a valid password: password is empty!");
+            return false;
+        }
+
         if (password.length() < 8) {
             System.out.println("Not a valid password: needs to contain 8 chars at least!");
             return false;
@@ -24,11 +29,8 @@ public class PassValidator {
             }
         }
 
-        if (password.toLowerCase() == password){
-            System.out.println("Not a valid password: needs to contain upper case letters");
-            return false;
-        }else if(password.toUpperCase() == password){
-            System.out.println("Not a valid password: needs to contain lower case letters");
+        if (password.toLowerCase() == password || password.toUpperCase() == password){
+            System.out.println("Not a valid password: needs to contain upper and lower case letters");
             return false;
         }
 
@@ -55,12 +57,6 @@ public class PassValidator {
 
     public static boolean passArrayValidation(String[] passwords){
 
-        for (int i = 0; i < passwords.length; i++){
-            if(passwords[i] == null);{
-                System.out.println("Array contains empty Passwords");
-                return false;
-            }
-        }
         for (int i = 0; i < passwords.length; i++) {
             String password = passwords[i];
             if (!passValidation(password)) {
@@ -74,16 +70,6 @@ public class PassValidator {
 
     }
 
-
-
-
-
-
-
-
-    public static void main(String[] args) {
-        passValidation("hadhH377hadk");
-    }
 
 
 }
