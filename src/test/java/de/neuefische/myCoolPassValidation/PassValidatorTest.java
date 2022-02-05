@@ -43,6 +43,42 @@ class PassValidatorTest {
         Assertions.assertTrue(PassValidator.passValidation(pass));
     }
 
+    @Test
+    void shouldValidatePassWithNull(){
+        String pass = null;
+        Assertions.assertFalse(PassValidator.passValidation(pass));
+    }
+
+
+
+    /////Test for Arrays/////////
+
+    @Test
+    void shouldNotValidateArrayOfPassOfLength0(){
+        String[] passwords = new String[0];
+        Assertions.assertFalse(PassValidator.passArrayValidation(passwords));
+    }
+
+    @Test
+    void shouldNotValidateEmptyArrayOfPassOfLength1(){
+        String[] passwords = new String[1];
+        Assertions.assertFalse(PassValidator.passArrayValidation(passwords));
+    }
+
+    @Test
+    void shouldNotValidateArrayWithNotValidPass(){
+        String[] passwords = {"adadhHkf"};
+        Assertions.assertFalse(PassValidator.passArrayValidation(passwords));
+    }
+
+    @Test
+    void shouldNotValidateArrayWithOneNotValidPass(){
+        String[] passwords = {"adadhHkf8!", "hadh"};
+        Assertions.assertFalse(PassValidator.passArrayValidation(passwords));
+    }
+
+
+
     /*
     @Test
     void shouldValidatePassWithNumbers(){
