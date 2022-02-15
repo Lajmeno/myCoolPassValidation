@@ -3,7 +3,6 @@ package de.neuefische.myCoolPassValidation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class PassValidatorTest {
 
@@ -42,6 +41,7 @@ class PassValidatorTest {
         String pass = "7dgHiwo!";
         Assertions.assertTrue(PassValidator.passValidation(pass));
     }
+
 
     @Test
     void shouldValidatePassWithNull(){
